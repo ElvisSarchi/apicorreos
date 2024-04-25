@@ -1,0 +1,17 @@
+{
+  "editor.formatOnSave": false,
+  "files.autoSave": "off",
+  "javascript.format.enable": false,
+  "eslint.enable": true,
+  "eslint.alwaysShowStatus": true,
+  "eslint.options": {
+    "extensions": [".html", ".js", ".jsx"]
+  },
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+  "editor.rulers": [120],
+  "editor.wordWrapColumn": 120,
+  "code-eol.crlfCharacter": "\\n",
+  
+}

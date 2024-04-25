@@ -1,0 +1,42 @@
+{
+  "name": "apicorreos",
+  "version": "1.0.0",
+  "description": "api para envio de correos de amazon ses",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon --exec babel-node index.js"
+  },
+  "author": "saci",
+  "license": "ISC",
+  "dependencies": {
+    "aws-sdk": "^2.825.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "moment": "^2.30.1",
+    "morgan": "^1.10.0",
+    "nodemailer": "^6.9.13"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.10.5",
+    "@babel/core": "^7.11.0",
+    "@babel/node": "^7.10.5",
+    "@babel/preset-env": "^7.11.0",
+    "babel-eslint": "^10.1.0",
+    "babel-jest": "^26.2.2",
+    "babel-plugin-module-resolver": "^4.0.0",
+    "eslint": "^7.5.0",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-config-kentcdodds": "^14.14.2",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-import-resolver-babel-module": "^5.1.2",
+    "eslint-plugin-babel": "^5.3.1",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "jest": "^26.2.2",
+    "nodemon": "^2.0.22",
+    "prettier": "^2.0.5",
+    "supertest": "^4.0.2"
+  }
+}
