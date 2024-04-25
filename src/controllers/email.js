@@ -1,7 +1,7 @@
 /* eslint-disable import/no-cycle */
-import AWS from "aws-sdk"
-import "dotenv/config"
-import nodemailer from "nodemailer"
+import AWS from 'aws-sdk'
+import 'dotenv/config'
+import nodemailer from 'nodemailer'
 const charsetFormat = `UTF-8`
 
 const transporter = nodemailer.createTransport({
@@ -19,11 +19,7 @@ const senderMode = {
   plainText: `plainText`,
   template: `template`,
 }
-const plainTextParams = ({
-  subject = ``,
-  body = ``,
-  charset = charsetFormat,
-}) => ({
+const plainTextParams = ({ subject = ``, body = ``, charset = charsetFormat }) => ({
   Message: {
     Body: {
       Html: {
@@ -59,14 +55,13 @@ export function sendEmail({
       },
       ReplyToAddresses: [],
       ...(mode === senderMode.plainText && plainTextParams({ subject, body })),
-      ...(mode === senderMode.template &&
-        templateParams({ templateName, template })),
+      ...(mode === senderMode.template && templateParams({ templateName, template })),
     }
     const toAddresses = params.Destination.ToAddresses ?? []
     const validEmails = toAddresses.filter((email) => {
       const regex = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/
       return regex.test(email)
-    });
+    })
     params.Destination.ToAddresses = validEmails
     if (validEmails.length === 0) {
       return false
