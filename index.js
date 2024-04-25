@@ -15,7 +15,17 @@ app.use(express.json({ limit: `50mb` }))
 app.use(express.urlencoded({ limit: `50mb`, extended: true }))
 app.use(`/public`, express.static(path.join(__dirname, `public`)))
 
-app.post(`/sendEmail`, async (req, res) => {
+//create a function to validate the request by autorization in headers
+const validateRequest = (req, res, next) => {
+  const { authorization } = req.headers
+  if (authorization === process.env.TOKEN) {
+    next()
+  } else {
+    res.status(401).send({ error: `Unauthorized` })
+  }
+}
+
+app.post(`/sendEmail`, validateRequest, async (req, res) => {
   try {
     const { from, to, subject, NOMBRE_SUPERVISOR, TIPO_USUARIO, RUC, RAZON_SOCIAL } = req.body
     //get tempalte
